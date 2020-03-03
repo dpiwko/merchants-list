@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Copy hooks
+
+Copy hooks from `/etc/hooks` to `.git/hooks`. You can do it manualy or use belows console command (run in app folder):
+
+**Linux/OSX**
+
+```
+cp ./etc/hooks/* ./.git/hooks
+```
+
+**Windows**
+
+```
+copy etc/hooks/* .git/hooks
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

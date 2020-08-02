@@ -2,13 +2,8 @@ import React, { InputHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { unit, colors, zIndex } from 'assets/styles'
 
-interface IInputAttr extends InputHTMLAttributes<HTMLInputElement> {
-  label: string
-  placeholder: string
-}
-
-export default (props: IInputAttr) => {
-  const setPlaceholder = (): string => {
+export default (props) => {
+  const setPlaceholder = () => {
     return props.required ? `${props.placeholder} *` : props.placeholder
   }
 

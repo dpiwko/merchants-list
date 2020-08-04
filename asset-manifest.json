@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/merchants-list/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/merchants-list/static/js/main.375faf4a.chunk.js",
+    "main.js.map": "/merchants-list/static/js/main.375faf4a.chunk.js.map",
+    "runtime-main.js": "/merchants-list/static/js/runtime-main.dee0da38.js",
+    "runtime-main.js.map": "/merchants-list/static/js/runtime-main.dee0da38.js.map",
+    "static/js/2.873d9ed3.chunk.js": "/merchants-list/static/js/2.873d9ed3.chunk.js",
+    "static/js/2.873d9ed3.chunk.js.map": "/merchants-list/static/js/2.873d9ed3.chunk.js.map",
+    "index.html": "/merchants-list/index.html",
+    "precache-manifest.f8053a364a6e1f2a894df361edb38dcc.js": "/merchants-list/precache-manifest.f8053a364a6e1f2a894df361edb38dcc.js",
+    "service-worker.js": "/merchants-list/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/merchants-list/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.873d9ed3.chunk.js.LICENSE.txt": "/merchants-list/static/js/2.873d9ed3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dee0da38.js",
+    "static/js/2.873d9ed3.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.375faf4a.chunk.js"
+  ]
+}

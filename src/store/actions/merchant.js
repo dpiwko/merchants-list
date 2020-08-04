@@ -3,58 +3,85 @@ import merchantsService from 'services/merchants'
 
 export const getMerchants = (pageNumber, itemsPerPage) => {
   return async (dispatch) => {
-    const result = await merchantsService.getAll(
-      pageNumber,
-      itemsPerPage
-    )
-  
-    dispatch({
-      type: mutation.GET_MERCHANTS,
-      payload: result,
-    })
+    dispatch({ type: mutation.GET_MERCHANTS })
+
+    try {
+      const result = await merchantsService.getAll(pageNumber, itemsPerPage)
+
+      dispatch({
+        type: mutation.GET_MERCHANTS_SUCCESS,
+        payload: result,
+      })
+    } catch (error) {
+      dispatch({ type: mutation.GET_MERCHANTS_FAILURE })
+    }
   }
 }
 
 export const getMerchantById = (id) => {
   return async (dispatch) => {
-    const result = await merchantsService.getById(id)
-    
-    dispatch({
-      type: mutation.GET_MERCHANT_BY_ID,
-      payload: result,
-    })
+    dispatch({ type: mutation.GET_MERCHANT_BY_ID })
+
+    try {
+      const result = await merchantsService.getById(id)
+
+      dispatch({
+        type: mutation.GET_MERCHANT_BY_ID_SUCCESS,
+        payload: result,
+      })
+    } catch (error) {
+      dispatch({ type: mutation.GET_MERCHANT_BY_ID_FAILURE })
+    }
   }
 }
 
 export const addMerchant = (merchant) => {
-  return (dispatch) => {
-    const result = merchantsService.addMerchant(merchant)
-    
-    dispatch({
-      type: mutation.ADD_MERCHANT,
-      payload: result,
-    })
+  return async (dispatch) => {
+    dispatch({ type: mutation.ADD_MERCHANT })
+
+    try {
+      const result = await merchantsService.addMerchant(merchant)
+
+      dispatch({
+        type: mutation.ADD_MERCHANT_SUCCESS,
+        payload: result,
+      })
+    } catch (error) {
+      dispatch({ type: mutation.ADD_MERCHANT_FAILURE })
+    }
   }
 }
 
-export const editMerchant = (merchant) => {
-  return (dispatch) => {
-    const result = merchantsService.editMerchant(merchant)
-  
-    dispatch({
-      type: mutation.EDIT_MERCHANT,
-      payload: result,
-    })
+export const editMerchant = (id, merchant) => {
+  return async (dispatch) => {
+    dispatch({ type: mutation.EDIT_MERCHANT })
+
+    try {
+      const result = await merchantsService.editMerchant(id, merchant)
+
+      dispatch({
+        type: mutation.EDIT_MERCHANT_SUCCESS,
+        payload: result,
+      })
+    } catch (error) {
+      dispatch({ type: mutation.EDIT_MERCHANT_FAILURE })
+    }
   }
 }
 
 export const deleteMerchant = (id) => {
-  return (dispatch) => {
-    const result = merchantsService.deleteMerchant(id)
+  return async (dispatch) => {
+    dispatch({ type: mutation.DELETE_MERCHANT })
 
-    dispatch({
-      type: mutation.DELETE_MERCHANT,
-      payload: result,
-    })
+    try {
+      await merchantsService.deleteMerchant(id)
+
+      dispatch({
+        type: mutation.DELETE_MERCHANT_SUCCESS,
+        payload: id,
+      })
+    } catch (error) {
+      dispatch({ type: mutation.DELETE_MERCHANT_FAILURE })
+    }
   }
 }

@@ -1,15 +1,16 @@
 export const unit = 16
 
 export const colors = {
-  primary: '#4a90e2',
+  primary: '#2c449a',
   secondary: '#fff',
-  tertiary: '#a95523',
+  tertiary: '#f6852a',
   background: '#e87f36',
   inputBorder: '#979797',
-  grey: '#f5f5f5',
+  grey: '#999',
   link: '#0f2751',
   text: '#4a4a4a',
   textSecondary: '#979797',
+  error: '#d93636',
 }
 
 export const zIndex = {

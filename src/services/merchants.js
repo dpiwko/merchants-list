@@ -1,4 +1,4 @@
-const endpointUrl = 'https://5f25fa6dc85de20016293464.mockapi.io/merchants/'
+const endpointUrl = 'https://5f25fa6dc85de20016293464.mockapi.io/merchants'
 
 export default {
   getAll() {
@@ -14,13 +14,19 @@ export default {
   addMerchant(merchant) {
     return fetch(endpointUrl, {
       method: 'POST',
-      body: merchant,
+      body: JSON.stringify(merchant),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
     }).then((response) => response.json())
   },
-  editMerchant(merchant) {
-    return fetch(endpointUrl, {
+  editMerchant(id, merchant) {
+    return fetch(`${endpointUrl}/${id}`, {
       method: 'PUT',
-      body: merchant,
+      body: JSON.stringify(merchant),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
     }).then((response) => response.json())
   },
   deleteMerchant(id) {

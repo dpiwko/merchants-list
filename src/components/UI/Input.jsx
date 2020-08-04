@@ -1,16 +1,22 @@
-import React, { InputHTMLAttributes } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { unit, colors, zIndex } from 'assets/styles'
 
 export default (props) => {
+  const placeholder = props.placeholder ? props.placeholder : props.label
   const setPlaceholder = () => {
-    return props.required ? `${props.placeholder} *` : props.placeholder
+    return props.required ? `${placeholder} *` : placeholder
   }
+  
+  const validationMsg = props.validationMsg
+    ? props.validationMsg
+    : 'This field is required'
 
   return (
     <FieldStyled>
       <InputStyled
         {...props}
+        className={props.isValid && 'hasError'}
         autoComplete="off"
         placeholder={setPlaceholder()}
       />
@@ -18,19 +24,28 @@ export default (props) => {
         {props.label}
         {props.required && <RequiredStyled>*</RequiredStyled>}
       </LabelStyled>
+
+      {props.isValid && (
+        <ValidationMsgStyled>{validationMsg}</ValidationMsgStyled>
+      )}
     </FieldStyled>
   )
 }
 
+/**
+ * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
+ */
+
 const FieldStyled = styled('div')({
   position: 'relative',
-  marginBottom: unit * 1.75,
+  marginBottom: unit * 2,
 })
 
 const InputStyled = styled('input')({
+  width: 400,
   boxSizing: 'border-box',
   padding: unit * 1.25,
-  border: `1px solid ${colors.inputBorder}`,
+  border: `2px solid ${colors.inputBorder}`,
   color: colors.text,
   fontSize: unit,
   outline: 'none',
@@ -57,6 +72,9 @@ const InputStyled = styled('input')({
     opacity: 0.4,
     pointerEvents: 'none',
   },
+  '&.hasError': {
+    borderColor: colors.error,
+  },
 })
 
 const LabelStyled = styled('label')({
@@ -64,7 +82,7 @@ const LabelStyled = styled('label')({
   position: 'absolute',
   top: 8,
   left: 22,
-  color: colors.secondary,
+  color: colors.primary,
   fontSize: unit / 1.5,
   pointerEvents: 'none',
   transition: '.2s',
@@ -74,4 +92,12 @@ const LabelStyled = styled('label')({
 const RequiredStyled = styled('span')({
   display: 'inline-block',
   marginLeft: 4,
+})
+
+const ValidationMsgStyled = styled('span')({
+  display: 'block',
+  position: 'absolute',
+  margin: '2px 0',
+  fontSize: unit / 1.25,
+  color: colors.error,
 })

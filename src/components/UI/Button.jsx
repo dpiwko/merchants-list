@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import { lighten, darken } from 'polished'
 import { unit, colors } from 'assets/styles'
 
+/**
+ * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
+ */
+
 const height = 42
 export default styled('button')({
   height,
@@ -10,7 +14,8 @@ export default styled('button')({
   margin: '20px auto',
   boxSizing: 'border-box',
   padding: `0 ${unit * 2}px`,
-  borderBottom: `2px solid ${colors.tertiary}`,
+  border: 0,
+  borderBottom: `2px solid ${colors.primary}`,
   fontFamily: 'inherit',
   fontSize: 18,
   fontWeight: 700,
@@ -30,5 +35,11 @@ export default styled('button')({
     pointerEvents: 'none',
     cursor: 'default',
     opacity: 0.5,
+  },
+  '&.is-secondary': {
+    backgroundColor: colors.grey,
+    ':hover:enabled': {
+      backgroundColor: darken(0.1, colors.grey),
+    },
   },
 })

@@ -1,1 +1,5 @@
 export { default as App } from './App/App'
+export { default as AddMerchant } from './Merchants/AddMerchant'
+export { default as EditMerchant } from './Merchants/EditMerchant'
+export { default as FormMerchant } from './Merchants/FormMerchant'
+export { default as MerchantsList } from './Merchants/MerchantsList'

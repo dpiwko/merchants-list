@@ -101,66 +101,64 @@ export class FormMerchant extends Component {
     const { merchant, validations, submitted } = this.state
   
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} noValidate>
-          <Input
-            label="First Name"
-            name="firstname"
-            required={true}
-            value={merchant.firstname}
-            onChange={this.handleInputChange}
-            isValid={validations.firstname && submitted}
-          />
+      <form onSubmit={this.handleSubmit} noValidate>
+        <Input
+          label="First Name"
+          name="firstname"
+          required={true}
+          value={merchant.firstname}
+          onChange={this.handleInputChange}
+          isValid={validations.firstname && submitted}
+        />
 
-          <Input
-            label="Last Name"
-            name="lastname"
-            required={true}
-            value={merchant.lastname}
-            onChange={this.handleInputChange}
-            isValid={validations.lastname && submitted}
-          />
+        <Input
+          label="Last Name"
+          name="lastname"
+          required={true}
+          value={merchant.lastname}
+          onChange={this.handleInputChange}
+          isValid={validations.lastname && submitted}
+        />
 
-          <Input
-            label="Email"
-            name="email"
-            required={true}
-            value={merchant.email}
-            onChange={this.handleInputChange}
-            isValid={validations.email && submitted}
-          />
+        <Input
+          label="Email"
+          name="email"
+          required={true}
+          value={merchant.email}
+          onChange={this.handleInputChange}
+          isValid={validations.email && submitted}
+        />
 
-          <Input
-            label="Phone"
-            name="phone"
-            type="number"
-            required={true}
-            value={merchant.phone}
-            onChange={this.handleInputChange}
-            isValid={validations.phone && submitted}
-          />
+        <Input
+          label="Phone"
+          name="phone"
+          type="number"
+          required={true}
+          value={merchant.phone}
+          onChange={this.handleInputChange}
+          isValid={validations.phone && submitted}
+        />
 
-          <Input
-            label="Avatar Link"
-            name="avatarUrl"
-            value={merchant.avatarUrl}
-            onChange={this.handleInputChange}
-          />
+        <Input
+          label="Avatar Link"
+          name="avatarUrl"
+          value={merchant.avatarUrl}
+          onChange={this.handleInputChange}
+        />
 
-          <Checkbox
-            label="Premium"
-            name="premium"
-            checked={merchant.hasPremium ? 'checked' : ''}
-            onChange={this.handleCheckboxChange}
-          />
+        <Checkbox
+          label="Premium"
+          name="premium"
+          checked={merchant.hasPremium ? 'checked' : ''}
+          onChange={this.handleCheckboxChange}
+        />
 
-          <Button className="is-secondary" onClick={this.handleCancel}>
-            Cancel
-          </Button>
+        <Button className="is-secondary" onClick={this.handleCancel}>
+          Cancel
+        </Button>
 
-          <Button type="submit">{merchant.id ? 'Edit' : 'Add'}</Button>
-        </form>
-      </div>
+        <Button type="submit">{merchant.id ? 'Edit' : 'Add'}</Button>
+      </form>
     )
   }
 }

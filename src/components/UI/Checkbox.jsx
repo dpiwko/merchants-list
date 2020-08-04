@@ -27,7 +27,8 @@ const dimension = 22
 const borderWidth = 2
 const FieldStyled = styled('div')({
   position: 'relative',
-  marginBottom: unit * 1.75,
+  width: '60%',
+  margin: `0 auto ${unit * 1.75}px`,
 })
 
 const LabelStyled = styled('label')({

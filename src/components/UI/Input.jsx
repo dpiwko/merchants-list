@@ -38,23 +38,27 @@ export default (props) => {
 
 const FieldStyled = styled('div')({
   position: 'relative',
-  marginBottom: unit * 2,
+  width: '60%',
+  margin: `0 auto ${unit * 2}px`,
+  textAlign: 'center',
 })
 
 const InputStyled = styled('input')({
-  width: 400,
+  width: '100%',
   boxSizing: 'border-box',
-  padding: unit * 1.25,
-  border: `2px solid ${colors.inputBorder}`,
+  padding: `${unit}px ${unit * 2}px`,
   color: colors.text,
   fontSize: unit,
+  backgroundColor: colors.greyDB,
+  border: `2px solid ${colors.greyDB}`,
+  borderRadius: 50,
   outline: 'none',
   transition: '.2s',
   ':hover:enabled': {
     borderColor: colors.text,
   },
   ':focus:enabled': {
-    borderColor: colors.primary,
+    borderColor: colors.tertiary,
   },
   ':placeholder-shown': {
     '+ label': {
@@ -67,6 +71,7 @@ const InputStyled = styled('input')({
   },
   '::placeholder': {
     color: colors.grey,
+    textTransform: 'uppercase',
   },
   ':disabled, :read-only': {
     opacity: 0.4,
@@ -81,9 +86,9 @@ const LabelStyled = styled('label')({
   zIndex: zIndex.inputLabel,
   position: 'absolute',
   top: 8,
-  left: 22,
+  left: 28,
   color: colors.primary,
-  fontSize: unit / 1.5,
+  fontSize: unit / 1.4,
   pointerEvents: 'none',
   transition: '.2s',
   opacity: 1,

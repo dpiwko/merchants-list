@@ -29,6 +29,8 @@ class MerchantsList extends Component {
   render() {
     return (
       <Loader isLoading={this.props.loading}>
+        <h1>Merchants list</h1>
+
         {this.props.merchants.map((merchant) => (
           <Card
             data={merchant}
@@ -36,7 +38,7 @@ class MerchantsList extends Component {
             handleRemove={this.handleRemove}
             key={merchant.id}
           >
-            <Bids bids={merchant.bids}/>
+            <Bids bids={merchant.bids} />
           </Card>
         ))}
 

@@ -16,8 +16,10 @@ const Card = (props) => {
         <StyledHeadingLink to={props.linkPath}>
           {firstname} {lastname}
         </StyledHeadingLink>
-        {phone}, {email}
-        <StyledRemove onClick={() => props.handleRemove(id)}/>
+        <a href={`tel: ${phone}`}>{phone}</a>,
+        <a href={`mailto: ${email}`}>{email}</a>
+        {props.children}
+        <StyledRemove onClick={() => props.handleRemove(id)} />
       </InnerWrapper>
     </StyledWrapper>
   )

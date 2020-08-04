@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Logo from 'assets/images/logo.png'
 import { Button } from 'components'
 
-const Nav = () => (
+export default () => (
   <nav>
     <NavLink exact to="/">
       <img src={Logo} alt="Logo" />
@@ -14,5 +14,3 @@ const Nav = () => (
     </Button>
   </nav>
 )
-
-export default Nav

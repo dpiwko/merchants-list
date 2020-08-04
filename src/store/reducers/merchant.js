@@ -3,6 +3,8 @@ import * as mutation from 'mutation-types'
 const initialState = {
   merchants: [],
   selectedMerchant: {},
+  currentPage: 1,
+  numberOfPages: 0,
   loading: true,
   hasError: false,
 }
@@ -29,6 +31,8 @@ const merchant = (state = initialState, action) => {
         ...state,
         ...success,
         merchants: action.payload,
+        currentPage: action.currentPage,
+        numberOfPages: action.numberOfPages,
       }
     case mutation.GET_MERCHANTS_FAILURE:
       return {

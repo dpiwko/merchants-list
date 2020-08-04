@@ -1,16 +1,20 @@
 import * as mutation from 'mutation-types'
 import merchantsService from 'services/merchants'
+import pagination from 'helpers/pagination'
 
 export const getMerchants = (pageNumber, itemsPerPage) => {
   return async (dispatch) => {
     dispatch({ type: mutation.GET_MERCHANTS })
 
     try {
-      const result = await merchantsService.getAll(pageNumber, itemsPerPage)
+      const result = await merchantsService.getAll()
+      const paginationList = pagination(result, pageNumber, itemsPerPage)
 
       dispatch({
         type: mutation.GET_MERCHANTS_SUCCESS,
-        payload: result,
+        payload: paginationList.displayList,
+        currentPage: paginationList.currentPage,
+        numberOfPages: paginationList.numberOfPages,
       })
     } catch (error) {
       dispatch({ type: mutation.GET_MERCHANTS_FAILURE })
